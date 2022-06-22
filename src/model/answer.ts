@@ -9,6 +9,14 @@ export default class AnswerModel {
         this.#isRevealed = isRevealed
     }
 
+    static correctAnswer(answerValue: string){
+        return new AnswerModel(answerValue, true)
+        
+    }
+    static wrongAnswer(answerValue: string){
+        return new AnswerModel(answerValue, false)
+    }
+
     get answerValue() {
         return this.#answerValue
     }

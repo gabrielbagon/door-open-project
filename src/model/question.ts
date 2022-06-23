@@ -1,14 +1,13 @@
-import { threadId } from "worker_threads"
-import AnswerModel from "./answer"
+import { shuffle } from "../../functions/arrays";
+import AnswerModel from "./answer";
 
 export default class QuestionModel {
     #id: number
     #statement: string
     #answers: AnswerModel[]
     #correct: boolean
-    // #answered: boolean
 
-    constructor(id: number, statement: string, answers: AnswerModel[], correct: boolean = false) {
+    constructor(id: number, statement: string, answers: AnswerModel[], correct = false) {
         this.#id = id
         this.#statement = statement
         this.#answers = answers
@@ -34,12 +33,28 @@ export default class QuestionModel {
         return false
      }
 
+     answerWith(index: number): QuestionModel {
+        const correctAnswer = this.#answers[index]?.correct
+        const answers = this.#answers.map((answer, i) => {
+            const selectedAnswer = index === i
+            const mustReveal = selectedAnswer || answer.correct
+            return mustReveal ? answer.toReview() : answer
+        })
+        return new QuestionModel(this.id, this.statement, answers, correctAnswer)
+     }
+
+     shuffleAnswers(): QuestionModel {
+        let scrambledAnswers = shuffle(this.#answers)
+        return new QuestionModel(this.#id, this.#statement, scrambledAnswers, this.#correct)
+     }
+
      convertToObject() {
         return {
             id: this.#id,
             statement: this.#statement,
-            answers: this.#answers.map(res => res.convertToObject()),
+            answered: this.answered,
             correct: this.#correct,
+            answers: this.#answers.map(res => res.convertToObject())
         }
      }
 }

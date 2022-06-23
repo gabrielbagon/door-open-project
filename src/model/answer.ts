@@ -2,15 +2,16 @@ export default class AnswerModel {
     #answerValue: string
     #correctAnswer: boolean
     #isRevealed: boolean
+    correct: boolean
 
-    constructor(answerValue: string, correctAnswer: boolean, isRevealed: false) {
+    constructor(answerValue: string, correctAnswer: boolean, isRevealed: boolean) {
         this.#answerValue = answerValue
         this.#correctAnswer = correctAnswer
         this.#isRevealed = isRevealed
     }
 
     static correctAnswer(answerValue: string){
-        return new AnswerModel(answerValue, true, false)
+        return new AnswerModel(answerValue, true, true)
         
     }
     static wrongAnswer(answerValue: string){
@@ -26,6 +27,11 @@ export default class AnswerModel {
     get isRevealed() {
         return this.#isRevealed
     }
+
+    toReview() {
+        return new AnswerModel(this.#answerValue, this.#correctAnswer, true)
+    }
+
     convertToObject() {
         return {
             answerValue: this.#answerValue,

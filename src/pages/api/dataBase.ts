@@ -8,7 +8,7 @@ const questions: QuestionModel[] = [
       AnswerModel.wrongAnswer('A CSS3 framework'),
       AnswerModel.correctAnswer('A React.js framework'),
     ]),
-    new QuestionModel(206, 'What is DOM?', [
+    new QuestionModel(202, 'What is DOM?', [
       AnswerModel.wrongAnswer('A C# library'),
       AnswerModel.correctAnswer('The DOM is an object representation of the HTML elements. It acts as a bridge between your code and the user interface, and has a tree-like structure with parent and child relationships.'),
       AnswerModel.wrongAnswer('A machine learning concept'),

@@ -1,3 +1,4 @@
+import { threadId } from "worker_threads"
 import AnswerModel from "./answer"
 
 export default class QuestionModel {
@@ -31,5 +32,14 @@ export default class QuestionModel {
             if (answer.isRevealed) return true
         }
         return false
+     }
+
+     convertToObject() {
+        return {
+            id: this.#id,
+            statement: this.#statement,
+            answers: this.#answers.map(res => res.convertToObject()),
+            correct: this.#correct,
+        }
      }
 }

@@ -10,11 +10,11 @@ export default class AnswerModel {
     }
 
     static correctAnswer(answerValue: string){
-        return new AnswerModel(answerValue, true)
+        return new AnswerModel(answerValue, true, false)
         
     }
     static wrongAnswer(answerValue: string){
-        return new AnswerModel(answerValue, false)
+        return new AnswerModel(answerValue, false, false)
     }
 
     get answerValue() {
@@ -26,4 +26,11 @@ export default class AnswerModel {
     get isRevealed() {
         return this.#isRevealed
     }
+    convertToObject() {
+        return {
+            answerValue: this.#answerValue,
+            correctAnswer: this.#correctAnswer,
+            isRevealed: this.#isRevealed,
+        }
+     }
 }

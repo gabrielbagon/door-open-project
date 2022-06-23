@@ -14,6 +14,18 @@ const questions: QuestionModel[] = [
       AnswerModel.wrongAnswer('A machine learning concept'),
       AnswerModel.wrongAnswer('A programming language'),
     ]),
+    new QuestionModel(203, 'What is a component?', [
+      AnswerModel.wrongAnswer('Components are dependent and not reusable bits of code. They dont serve the same purpose as JavaScript functions, but work in isolation and return HTML.'),
+      AnswerModel.correctAnswer('Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and return HTML.'),
+      AnswerModel.wrongAnswer('Components are blocks of css stylesheet'),
+      AnswerModel.wrongAnswer('A folder architecture'),
+    ]),
+    new QuestionModel(204, 'What is a Typescript?', [
+      AnswerModel.correctAnswer('TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.'),
+      AnswerModel.wrongAnswer('A C# term'),
+      AnswerModel.wrongAnswer('A machine learning concept'),
+      AnswerModel.wrongAnswer('A database language, like MySQL'),
+    ]),
    
 
 ]

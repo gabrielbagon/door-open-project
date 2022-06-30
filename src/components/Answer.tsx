@@ -5,7 +5,7 @@ interface AnswerProps {
     value: AnswerModel
     index: number
     letter: string
-    letterColor: string
+    letterBackgroundColor: string
 }
 
 export default function Answer (props: AnswerProps) {
@@ -14,7 +14,8 @@ export default function Answer (props: AnswerProps) {
         <div className={styles.answer}>
             <div className={styles.content}>
                 <div className={styles.frontFlipCard}>
-                    <div className={styles.letter}>
+                    <div className={styles.letter}
+                    style={{backgroundColor: props.letterBackgroundColor}}>
                         {props.letter}
                     </div>
                     <div className={styles.value}>

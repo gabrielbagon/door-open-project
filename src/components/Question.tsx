@@ -12,11 +12,12 @@ export default function Question(props: QuestionProps){
 
     function renderAnswers () {
         return question.answers.map((answer, i) => {
-            return <Answer 
+            return <Answer
+            key={i} 
             value={answer}
             index={i}
             letter="A"
-            letterColor='#F2C866'
+            letterBackgroundColor='#F2C866'
             />
         } )
     }

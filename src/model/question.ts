@@ -6,7 +6,6 @@ export default class QuestionModel {
     #statement: string
     #answers: AnswerModel[]
     #correct: boolean
-
     constructor(id: number, statement: string, answers: AnswerModel[], correct = false) {
         this.#id = id
         this.#statement = statement
@@ -26,6 +25,7 @@ export default class QuestionModel {
      get correct() { 
         return this.#correct
      }
+
      get answered() { 
         for (let answer of this.#answers) {
             if (answer.isRevealed) return true
@@ -37,7 +37,7 @@ export default class QuestionModel {
         const correctAnswer = this.#answers[index]?.correct
         const answers = this.#answers.map((answer, i) => {
             const selectedAnswer = index === i
-            const mustReveal = selectedAnswer || answer.correct
+            const mustReveal = selectedAnswer || answer.correct 
             return mustReveal ? answer.toReview() : answer
         })
         return new QuestionModel(this.id, this.statement, answers, correctAnswer)

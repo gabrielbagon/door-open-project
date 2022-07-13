@@ -27,6 +27,27 @@
     background-color: #fff;
 }
 
+.backFlipCard > div {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   flex: 1;
+   border-radius: 12px;
+}
+
+.correctAnswer {
+    background-color: #2BAA6D;
+}
+
+.wrongAnswer {
+    background-color: #eb2727;
+}
+
+.correctAnswer .answerValue, .wrongAnswer .answerValue {
+    font-size: 1.5rem;
+}
+
 .letter {
     display: flex;
     justify-content: center;
@@ -37,6 +58,7 @@
     font-size: 1.3rem;
     font-weight: 700;
     margin-right: 20px;
+    color: #fff;
 }
 
 .value {
